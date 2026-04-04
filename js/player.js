@@ -150,14 +150,14 @@ function loadGame() {
 function loadDetails() {
 <<<<<<< HEAD
     const gameDetails = document.getElementById("game-details");
-    const descriptionContainer = document.getElementById("game-description");
     const infoButton = document.getElementById("info-btn");
 
     // Reset content
     gameDetails.innerHTML = "";
-    descriptionContainer.innerHTML = "<h2>Description</h2>";
+    gameDetails.style.display = "";
 
     // Description (inside the box on the right)
+<<<<<<< HEAD
 const gameDetails = document.getElementById("game-details");
 const infoButton = document.getElementById("info-btn");
 
@@ -173,10 +173,13 @@ if (hasDescription) {
     if (infoButton) infoButton.remove();
 
     // ✅ Move description to the LEFT box
+=======
+>>>>>>> parent of 2d1bc05 (1)
     const descriptionText = currentGame.description || "No description available";
     const descriptionDiv = document.createElement("div");
     descriptionDiv.innerHTML = `
         <h4>Description</h4>
+<<<<<<< HEAD
         <p>${currentGame.description}</p>
     `;
     gameDetails.append(descriptionDiv);
@@ -235,6 +238,28 @@ if (!hasDescription && !hasDetails) {
 		gameDetails.style.display = "none";
 	}
 >>>>>>> parent of 1cd76d3 (1)
+=======
+        <p>${descriptionText}</p>
+    `;
+    gameDetails.append(descriptionDiv);
+
+    // Other details
+    if ("details" in currentGame) {
+        Object.keys(currentGame.details).forEach((key) => {
+            const detail = document.createElement("div");
+            detail.innerHTML = `
+                <h4>${key}</h4>
+                <p>${currentGame.details[key]}</p>
+            `;
+            gameDetails.append(detail);
+        });
+    }
+
+    // If no details or description, hide the whole info button
+    if (!("description" in currentGame) && !("details" in currentGame)) {
+        if (infoButton) infoButton.style.display = "none";
+    }
+>>>>>>> parent of 2d1bc05 (1)
 }
 
 // Initialize
