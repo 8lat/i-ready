@@ -6,12 +6,12 @@ const REVIEWS = [
 	{ user: "Karter Fife", stars: 5, text: "The games are so fun, if only I had friends to play with."}
 ];
 
-//const FEATURED_REVIEW = [
-//	{
-//		user: "Want to be featured? <span>&starf;</span>",
-//		text: `Fill out <a href="https://forms.gle/2jF6mzjqozU8DNXv8" target="_blank">this form</a> to get a chance for your review to appear on the front page!`,
-//	},
-// ];
+const FEATURED_REVIEW = [
+	{
+		user: "Want to be featured? <span>&starf;</span>",
+		text: `Fill out <a href="https://forms.gle/2jF6mzjqozU8DNXv8" target="_blank">this form</a> to get a chance for your review to appear on the front page!`,
+	},
+ ];
 
 // Global
 let games = [];
