@@ -101,21 +101,21 @@ function buildMute() {
 	const muteBtn = document.getElementById("mute");
 	const muteMask = document.getElementById("mute-mask");
 	const player = document.getElementById("player");
-    const tooltip = document.getElementById("mute-tooltip");
+	const tooltip = document.getElementById("mute-tooltip");
 
-    muteMask.style.transformOrigin = "center";
+	muteMask.style.transformOrigin = "center";
 
 	muteBtn.addEventListener("click", () => {
 		player.muted = !player.muted;
 
 		if (player.muted) {
-            muteMask.style.transform = "rotate(45deg)";
-            muteMask.style.stroke = "red";
-            tooltip.textContent = "Unmute Player";
+			muteMask.style.transform = "rotate(45deg)";
+			muteMask.style.stroke = "red";
+			tooltip.textContent = "Unmute Player";
 		} else {
-            muteMask.style.transform = "rotate(0deg)";
-            muteMask.style.stroke = "var(--text)";
-            tooltip.textContent = "Mute Player";
+			muteMask.style.transform = "rotate(0deg)";
+			muteMask.style.stroke = "var(--text)";
+			tooltip.textContent = "Mute Player";
 		}
 	});
 }
@@ -164,11 +164,19 @@ function loadDetails() {
     const descriptionDiv = document.createElement("div");
     descriptionDiv.innerHTML = `<p>${descriptionText}</p>`;
     descriptionContainer.append(descriptionDiv);
-	// ✅ Keep other details on the RIGHT
+
+
+
+
+    // ✅ Keep other details on the RIGHT
     if ("details" in currentGame) {
         Object.keys(currentGame.details).forEach((key) => {
             const detail = document.createElement("div");
-			gameDetails.append(detail);
+            detail.innerHTML = `
+                <h4>${key}</h4>
+                <p>${currentGame.details[key]}</p>
+            `;
+            gameDetails.append(detail);
         });
     }
 
@@ -178,7 +186,6 @@ function loadDetails() {
 
 }
 
-// Initialize
 // Initialize
 (async function init() {
 	games = await fetchGames();
@@ -192,4 +199,3 @@ function loadDetails() {
 	buildFullscreen();
 
 	addRandomGames(games);
-})();
