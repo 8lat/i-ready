@@ -148,35 +148,38 @@ function loadGame() {
 }
 
 function loadDetails() {
-	const gameDescription = document.getElementById("game-description");
-	const gameDetails = document.getElementById("game-details");
-	const infoButton = document.getElementById("info-btn");
+    const gameDetails = document.getElementById("game-details");
+    const infoButton = document.getElementById("info-btn");
 
-	// Reset content
-	gameDescription.innerHTML = "<h2>Description</h2>";
-	gameDetails.innerHTML = "";
-	gameDescription.style.display = "";
-	gameDetails.style.display = "";
+    // Reset content
+    gameDetails.innerHTML = "";
+    gameDetails.style.display = "";
 
-	// Always show description, use placeholder if missing
-	const descriptionText = currentGame.description || "No description available";
-	const description = document.createElement("p");
-	description.textContent = descriptionText;
-	gameDescription.append(description);
+    // Description (inside the box on the right)
+    const descriptionText = currentGame.description || "No description available";
+    const descriptionDiv = document.createElement("div");
+    descriptionDiv.innerHTML = `
+        <h4>Description</h4>
+        <p>${descriptionText}</p>
+    `;
+    gameDetails.append(descriptionDiv);
 
-	// Details
-	if ("details" in currentGame) {
-		Object.keys(currentGame.details).forEach((key) => {
-			const detail = document.createElement("div");
-			detail.innerHTML = `
-				<h4>${key}</h4>
-				<p>${currentGame.details[key]}</p>
-			`;
-			gameDetails.append(detail);
-		});
-	} else {
-		gameDetails.style.display = "none";
-	}
+    // Other details
+    if ("details" in currentGame) {
+        Object.keys(currentGame.details).forEach((key) => {
+            const detail = document.createElement("div");
+            detail.innerHTML = `
+                <h4>${key}</h4>
+                <p>${currentGame.details[key]}</p>
+            `;
+            gameDetails.append(detail);
+        });
+    }
+
+    // If no details or description, hide the whole info button
+    if (!("description" in currentGame) && !("details" in currentGame)) {
+        if (infoButton) infoButton.style.display = "none";
+    }
 }
 
 // Initialize
