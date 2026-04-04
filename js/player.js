@@ -149,22 +149,23 @@ function loadGame() {
 
 function loadDetails() {
     const gameDetails = document.getElementById("game-details");
+    const descriptionContainer = document.getElementById("game-description");
     const infoButton = document.getElementById("info-btn");
 
     // Reset content
     gameDetails.innerHTML = "";
-    gameDetails.style.display = "";
+    descriptionContainer.innerHTML = "<h2>Description</h2>";
 
-    // Description (inside the box on the right)
+    // ❌ Remove the red button completely
+    if (infoButton) infoButton.remove();
+
+    // ✅ Move description to the LEFT box
     const descriptionText = currentGame.description || "No description available";
     const descriptionDiv = document.createElement("div");
-    descriptionDiv.innerHTML = `
-        <h4>Description</h4>
-        <p>${descriptionText}</p>
-    `;
-    gameDetails.append(descriptionDiv);
+    descriptionDiv.innerHTML = `<p>${descriptionText}</p>`;
+    descriptionContainer.append(descriptionDiv);
 
-    // Other details
+    // ✅ Keep other details on the RIGHT
     if ("details" in currentGame) {
         Object.keys(currentGame.details).forEach((key) => {
             const detail = document.createElement("div");
@@ -174,11 +175,6 @@ function loadDetails() {
             `;
             gameDetails.append(detail);
         });
-    }
-
-    // If no details or description, hide the whole info button
-    if (!("description" in currentGame) && !("details" in currentGame)) {
-        if (infoButton) infoButton.style.display = "none";
     }
 }
 
