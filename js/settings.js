@@ -3,7 +3,7 @@
 
 // Config
 const PRESETS = {
-	iready: { title: "I-Ready", icon: "https://www.curriculumassociates.com/programs/i-ready-learning" },
+	iready: { title: "i-Ready", icon: "https://sites.google.com/gilbertschools.net/ffkjfjfjfjff" },
 	google: { title: "Google", icon: "https://google.com" },
 	googledrive: { title: "Google Drive", icon: "https://drive.google.com" },
 	desmos: { title: "Desmos", icon: "https://desmos.com/calculator" },
