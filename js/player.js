@@ -164,17 +164,15 @@ const infoButton = document.getElementById("info-btn");
 gameDetails.innerHTML = "";
 
 // Check if description or details exist
-const gameDetails = document.getElementById("game-details");
-const infoButton = document.getElementById("info-btn");
-
-// Reset content
-gameDetails.innerHTML = "";
-
-// Check if description or details exist
 const hasDescription = "description" in currentGame && currentGame.description.trim() !== "";
 const hasDetails = "details" in currentGame && Object.keys(currentGame.details).length > 0;
 
 if (hasDescription) {
+    // ❌ Remove the red button completely
+    if (infoButton) infoButton.remove();
+
+    // ✅ Move description to the LEFT box
+    const descriptionText = currentGame.description || "No description available";
     const descriptionDiv = document.createElement("div");
     descriptionDiv.innerHTML = `
         <h4>Description</h4>
