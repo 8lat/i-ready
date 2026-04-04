@@ -18,10 +18,10 @@ function buildNavbar() {
         <a href="index.html" class="nav-logo">I-Ready <span>Services</span></a>
 
         <div class="nav-links">
-            ${addLink("index.html", "Home")}
-            ${addLink("games.html", "Games")}
-            ${addLink("settings.html", "Settings")}
-            ${addLink("helper.html", "AI")}
+            ${addLink("/", "Home")}
+            ${addLink("/games/", "Games")}
+            ${addLink("/settings/", "Settings")}
+            ${addLink("/helper/", "AI")}
         </div>
 
         <button class="theme-toggle" id="theme-toggle">
