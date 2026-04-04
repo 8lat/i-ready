@@ -49,7 +49,7 @@ function buildGameCard(game) {
 	card.addEventListener("click", () => {
 		recordRecentlyPlayed(game);
 
-		window.open("player.html?" + cleanGameName, "_blank");
+		window.open("player/?" + cleanGameName, "_blank");
 	});
 
 	return card;
