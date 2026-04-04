@@ -37,7 +37,7 @@ function buildGameCard(game) {
 	card.className = "game-card";
 	card.innerHTML = `
         <div class="game-image">
-            <img src="${imgSrc}" alt="${game.gameName}" loading="lazy" onerror="this.src='img/placeholder.png';this.style='image-rendering: pixelated;'" />
+            <img src="${imgSrc}" alt="${game.gameName}" loading="lazy" onerror="this.src='/../img/placeholder.png';this.style='image-rendering: pixelated;'" />
 
             ${game.popular ? `<span class="hot-tag">HOT 🔥</span>` : ``}
             ${favoritedGames && favoritedGames.includes(game.gameName) ? `<span class="hot-tag favorite-tag">${FAVORITE_SVG}</span>` : ``}
