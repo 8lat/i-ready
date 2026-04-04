@@ -3,7 +3,6 @@
 
 // Config
 const PRESETS = {
-	iready: { title: "Google Classroom", icon: "https://classroom.google.com/" },
 	google: { title: "Google", icon: "https://google.com" },
 	googledrive: { title: "Google Drive", icon: "https://drive.google.com" },
 	desmos: { title: "Desmos", icon: "https://desmos.com/calculator" },
