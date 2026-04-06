@@ -15,7 +15,7 @@ function buildNavbar() {
 	const navbar = document.getElementById("navbar");
 
 	navbar.innerHTML = `
-        <a href="/../index.html" class="nav-logo">I-Ready <span>Services</span></a>
+        <a href="/../" class="nav-logo">I-Ready <span>Services</span></a>
 
         <div class="nav-links">
             ${addLink("/", "Home")}
