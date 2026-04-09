@@ -2,60 +2,62 @@
 <html lang="en" data-theme="dark">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="index, nofollow" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, nofollow">
 
     <title>i-Ready | Games</title>
-    <meta name="description" content="A large, curated game library of Flash games, web ports, emulators, and more. No BS or installs
-    needed." />
-
+    <meta name="description" content="A large, curated game library of Flash games, web ports, emulators, and more. No BS or installs needed.">
 
     <link rel="icon" id="dynamic-favicon" type="image/png" href="/../img/favicons/favicon-64x64.png" sizes="64x64">
-
     <link rel="manifest" href="/../site.webmanifest">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" sizes="180x180" href="/../img/favicons/apple-touch-icon.png">
 
-    <link rel="stylesheet" href="/../css/global.css" />
-    <link rel="stylesheet" href="/../css/games.css" />
+    <link rel="stylesheet" href="/../css/global.css">
+    <link rel="stylesheet" href="/../css/games.css">
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav id="navbar"></nav>
+    <nav id="navbar">
+        <a href="/../" class="nav-logo">I-Ready <span>Services</span></a>
 
-    <!-- Main -->
+        <div class="nav-links">
+            <a href="/" undefined>Home</a>
+            <a href="/games/" undefined>Games</a>
+            <a href="/settings/" undefined>Settings</a>
+            <a href="/helper/" undefined>AI</a>
+        </div>
+
+        <button class="theme-toggle" id="theme-toggle">
+            <!-- SVG icons omitted for brevity -->
+        </button>
+    </nav>
 
     <!-- Toolbar -->
     <div class="toolbar-wrap">
         <div class="search-bar">
             <svg width="16" viewBox="0 0 800 800" fill="none" stroke="var(--text2)" stroke-width="100">
-                <circle cx="400" cy="400" r="300" />
-                <path d="m800 800-200-200" />
+                <circle cx="400" cy="400" r="300"></circle>
+                <path d="m800 800-200-200"></path>
             </svg>
 
-            <input type="text" placeholder="Search games..." autocomplete="off" id="search-input" />
+            <input type="text" placeholder="Search games..." autocomplete="off" id="search-input">
         </div>
 
         <div class="filter-bar" id="filter-bar"></div>
     </div>
 
-    
     <!-- Games -->
     <div class="games-wrap">
-        <div class="games-grid" id="games-grid"></div>
-    </div>
-        <div class="game-title">Request game</div>
-    </a><a class="game-card">
-        <div class="game-image">
-            <img src="https://mathresources.axsetubal.pt/img/games/2048.webp" alt="2048" loading="lazy" onerror="this.src='/../img/710.png';this.style='image-rendering: pixelated;'">
-
-            
-            
+        <div class="games-grid" id="games-grid">
+            <!-- Placeholder card will be inserted by JS -->
         </div>
+    </div>
+
     <!-- Footer -->
     <footer id="footer"></footer>
 
