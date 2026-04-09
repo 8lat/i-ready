@@ -66,7 +66,7 @@ function buildFavorite() {
 	let favoritedGames = localStorage.getItem("favorited-games");
 	if (favoritedGames) {
 		favoritedGames = JSON.parse(favoritedGames);
-		isFavorited = favoritedGames.includes(currentGame?.gameName);
+		isFavorited = favoritedGames.includes(currentGame.gameName);
 
 		if (isFavorited) {
 			heartSVG.style.fill = "red";
@@ -77,8 +77,6 @@ function buildFavorite() {
 	}
 
 	heartBtn.addEventListener("click", () => {
-		if (!currentGame || currentGame.isExternal) return;
-
 		if (!isFavorited) {
 			heartSVG.style.fill = "red";
 			heartSVG.style.stroke = "red";
@@ -145,16 +143,6 @@ function loadGame() {
 		}
 	});
 
-	// 👇 HANDLE EXTERNAL (REQUEST FORM)
-	if (currentGame?.isExternal) {
-		window.open(currentGame.gameIndex, "_blank");
-
-		// send user back home (change if you want)
-		window.location.href = "/";
-		return;
-	}
-
-	// normal game
 	player.src = `${CDN}${currentGame.gameIndex}`;
 	gameTitle.textContent = currentGame.gameName;
 }
@@ -162,24 +150,25 @@ function loadGame() {
 function loadDetails() {
     const gameDetails = document.getElementById("game-details");
     const descriptionContainer = document.getElementById("game-description");
+    const infoButton = document.getElementById("info-btn");
 
     // Reset content
     gameDetails.innerHTML = "";
     descriptionContainer.innerHTML = "<h2>Description</h2>";
 
-    // Skip details for external
-    if (!currentGame || currentGame.isExternal) {
-        descriptionContainer.innerHTML += `<p>Opens a form in a new tab.</p>`;
-        return;
-    }
+    // ❌ Remove the red button completely
+    if (infoButton) infoButton.remove();
 
-    // Description
+    // ✅ Move description to the LEFT box
     const descriptionText = currentGame.description || "No description available";
     const descriptionDiv = document.createElement("div");
     descriptionDiv.innerHTML = `<p>${descriptionText}</p>`;
     descriptionContainer.append(descriptionDiv);
 
-    // Details
+
+
+
+    // ✅ Keep other details on the RIGHT
     if ("details" in currentGame) {
         Object.keys(currentGame.details).forEach((key) => {
             const detail = document.createElement("div");
@@ -190,21 +179,16 @@ function loadDetails() {
             gameDetails.append(detail);
         });
     }
+
+
+
+
+
 }
 
 // Initialize
 (async function init() {
 	games = await fetchGames();
-
-	// 👇 INJECT REQUEST GAME AT THE TOP
-	const requestGame = {
-		gameIndex: "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform",
-		gameName: "Request a Game",
-		description: "Submit a request and we'll try to add it!",
-		isExternal: true
-	};
-
-	games.unshift(requestGame);
 
 	loadGame();
 	loadDetails();
