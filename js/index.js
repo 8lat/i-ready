@@ -1,8 +1,8 @@
 // Config
 const REVIEWS = [
-	{ user: "Brady", stars: 4, text: "-1 star because 12 Mini Battles is rigged. (AKA I'm horrible at them)" },
-	{ user: "Finn", stars: 5, text: "Before I found this website, I had no girlfriend and was a loser. This hasn't changed, but the website is cool." },
-	{ user: "Hudson", stars: 4, text: "This website makes biology fun!" },
+	{ user: "Brady", stars: 5, text: "Sometimes school gets hard, but I-Ready help's me get through the hard times." },
+	{ user: "Finn Fife", stars: 5, text: "I love this site almost as much as Karter Fife" },
+	{ user: "Hudson", stars: 5, text: "This website makes biology fun!" },
 	{ user: "Karter Fife", stars: 5, text: "The games are so fun, if only I had friends to play with."},
 	{ user: "Jesse", stars: 5, text: "The games lowk dopefn on the per shizzel my nizzel."},
 	{ user: "Nathan", stars: 5, text: "I Cant believe you guys added the hit Game DELTARUNE. Im so happy you guys have my thanks. And it has all 4 chapters currently out. Really kudos to you guys. Kudos."}
